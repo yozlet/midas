@@ -36,7 +36,6 @@ passport.use('local', new LocalStrategy(
   }
 ));
 
-
 // SSPI LocalStrategy - (DoS non-OAuth provider)
 passport.use('sspi', new LocalStrategy(
   function (username, password, done) {
@@ -49,9 +48,9 @@ passport.use('sspi', new LocalStrategy(
       var user = providerUsers.pop();
       user = user || {};
       // map fields to what passport expects for profiles
-      user.id = user.user_id;
-      user.emails = [ {value: user.email, type:'work'} ];
-      user.displayName = user.name;
+      user.id = user.id;
+      user.emails = [ {value: user.useremail, type:'work'} ];
+      user.displayName = user.fullname;
       user.photoUrl = user.photo;
       // Send through standard local user creation flow
       userUtils.createLocalUser(username, password, done);

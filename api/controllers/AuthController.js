@@ -99,7 +99,6 @@ module.exports = {
     }
     authenticate(req, res, 'local', json);
   },
-
   sspi: function(req, res) {
     var json = false;
     if (req.param('json')) {
@@ -107,7 +106,6 @@ module.exports = {
     }
     authenticate(req, res, 'sspi', json);
   },
-
   oauth2: function(req, res) {
     processOAuth(req, res, 'oauth2');
   },
@@ -128,5 +126,4 @@ module.exports = {
       res.redirect('/projects');
     }
   }
-
 };
