@@ -12,9 +12,9 @@ Exec["apt-update"] -> Package <| |>
 #  virtualenv => true
 #}
 
-#Package {ensure => "installed"}
-#$mypackages = ["libxml2-dev", "libxslt-dev"]
-#package {$mypackages:}
+Package {ensure => "installed"}
+$mypackages = ["python-software-properties", "python", "g++", "make", "git"]
+package {$mypackages:}
 
 #python::virtualenv { '/home/vagrant/virtenv':
 #  owner        => 'vagrant',
