@@ -46,7 +46,7 @@ Vagrant::Config.run do |config|
   # This shell provisioner installs librarian-puppet and runs it to install
   # puppet modules. This has to be done before the puppet provisioning so that
   # the modules are available when puppet tries to parse its manifests.
-  config.vm.provision :shell, :path => "shell/main.sh"
+  config.vm.provision :shell, :path => "puppet/files/librarian.sh"
 
   # Enable provisioning with Puppet stand alone.  Puppet manifests
   # are contained in a directory path relative to this Vagrantfile.
@@ -56,7 +56,11 @@ Vagrant::Config.run do |config|
      puppet.manifests_path = "puppet/manifests"
      puppet.options = ['--verbose']
      puppet.manifest_file  = "site.pp"
-     #puppet.module_path = "puppet/modules"
+#     puppet.manifest_file  = "postgres.pp"
+
+     puppet.facter = {
+        "fqdn" => "devel"
+     }
   end
 
 end
