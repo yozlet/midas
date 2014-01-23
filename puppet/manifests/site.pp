@@ -1,5 +1,5 @@
-import "nodejs"
-import "postgres"
+import "midas_nodejs"
+import "midas_postgres"
 
 node "devel" {
   # Make sure all the packages are up to date before loading any packages
@@ -14,6 +14,6 @@ node "devel" {
     timezone => 'UTC',
   }
 
-  #include midas_nodejs
+  include midas_nodejs
   include midas_postgres
 }
