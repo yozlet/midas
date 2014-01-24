@@ -34,6 +34,9 @@ class midas_postgres {
 
     }
 
+    class { 'postgresql::lib::devel':
+     package_name => 'postgresql-server-dev-9.2'
+    }
 }
 
 

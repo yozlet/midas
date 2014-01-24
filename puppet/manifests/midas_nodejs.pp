@@ -1,7 +1,11 @@
+import "midas_sails"
+
 class midas_nodejs {
 
+  #Install Node and NPM. may want make install to be true in future
   class { 'nodejs':
       version => 'stable',
+      make_install => false,
   }
 
   package {'grunt-cli':
@@ -13,6 +17,9 @@ class midas_nodejs {
     provider  => 'npm',
     require   => Package['grunt-cli'],
   }
+
+  include midas_sails
+
 }
 
 
