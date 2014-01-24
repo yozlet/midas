@@ -1,6 +1,7 @@
 import "midas_nodejs"
 import "midas_postgres"
 import "midas_sails"
+import "midas_config"
 
 node "devel" {
   Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/" ] }
@@ -17,7 +18,15 @@ node "devel" {
     timezone => 'UTC',
   }
 
-#  include midas_nodejs
-#  include midas_postgres
+  include midas_nodejs
+  include midas_postgres
   include midas_sails
+  include midas_config
+
+  exec { 'start':
+    command   => "forever start app.js --prod",
+    cwd       => "/vagrant",
+    timeout   => 20000,
+    user      => "vagrant",
+  }
 }

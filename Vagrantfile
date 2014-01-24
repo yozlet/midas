@@ -40,7 +40,7 @@ Vagrant::Config.run do |config|
     # This allows symlinks to be created within the /vagrant root directory,
     # which is something librarian-puppet needs to be able to do. This might
     # be enabled by default depending on what version of VirtualBox is used.
-#    vb.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
+    config.vm.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
 #  end
 
   # This shell provisioner installs librarian-puppet and runs it to install

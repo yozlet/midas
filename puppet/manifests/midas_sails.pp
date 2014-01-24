@@ -5,11 +5,16 @@ class midas_sails {
     owner  => "vagrant",
     group  => "vagrant",
     mode   => 750,
+    purge  => true, # purge all unmanaged junk
+    force  => true, # also purge subdirs and links
+    recurse => true, # honestly don't know diff b/t this and purge
+
   }
 
-  package {'make':
+  $packagedep = ['make', 'g++']
+  package {$packagedep:
     ensure => 'installed',
-    before => Exec['npm_sails_install','g++'],
+    before => Exec['npm_sails_install'],
   }
 
   exec { 'git_clone_sails':
