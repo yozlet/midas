@@ -1,4 +1,5 @@
 class midas_sails {
+#  require midas_postgres
 
   file { "/usr/local/share/sails-postgresql":
     ensure => "directory",
@@ -20,40 +21,43 @@ class midas_sails {
   exec { 'git_clone_sails':
     command   => "git clone https://github.com/Innovation-Toolkit/sails-postgresql.git .",
     cwd       => "/usr/local/share/sails-postgresql",
-    timeout   => 20000,
-    user      => "vagrant",
+#    user  => "vagrant",
     require  => File['/usr/local/share/sails-postgresql'],
   }
 
   exec { 'git_sails_checkout':
     command   => "git checkout bytea",
     cwd       => "/usr/local/share/sails-postgresql",
+#    user  => "vagrant",
     require  => Exec['git_clone_sails'],
   }
 
   exec { 'npm_sails_install':
-    command   => "sudo npm install",
+    command   => "npm install",
+#    user  => "vagrant",
     cwd       => "/usr/local/share/sails-postgresql",
-    timeout   => 20000,
     require  => Exec['git_sails_checkout'],
   }
 
   exec { 'npm_sails_link':
-    command   => "sudo npm link",
+    command   => "npm link",
+#    user  => "vagrant",
     cwd       => "/usr/local/share/sails-postgresql",
     require  => Exec['npm_sails_install'],
   }
 
   exec { 'npm_midas_link':
-    command   => "sudo npm link sails-postgresql",
+    command   => "npm link sails-postgresql",
+#    user  => "vagrant",
     cwd       => "/vagrant",
     require  => Exec['npm_sails_link'],
   }
 
-  exec { 'npm_midas_install':
-    command   => "sudo npm install",
-    cwd       => "/vagrant",
-    require  => Exec['npm_midas_link'],
-  }
+#  exec { 'npm_midas_install':
+#    command   => "sudo npm install",
+##    user  => "vagrant",
+#    cwd       => "/vagrant",
+#    require  => Exec['npm_midas_link'],
+#  }
 
 }

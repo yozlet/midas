@@ -1,10 +1,6 @@
 #Install PostGreSQL Database
 class midas_postgres {
 
-#    user {'postgres':
-#        before          => Class['postgresql::globals']
-#    }
-
     class { 'concat::setup':
       before => Class['postgresql::globals'],
     }
@@ -23,7 +19,6 @@ class midas_postgres {
 
 
     postgresql::server::role { 'midas':
-#      password_hash => postgresql_password('midas', 'midas'),
       require             => Class['postgresql::server'],
     }->
 

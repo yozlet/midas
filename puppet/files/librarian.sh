@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# Hack to remove 'stdin: is not a tty' messages
+# See 'https://github.com/mitchellh/vagrant/issues/1673#issuecomment-26650102'
+sed -i 's/^mesg n$/tty -s \&\& mesg n/g' /root/.profile
+
 # Directory in which librarian-puppet should manage its modules directory
 PUPPET_DIR=/etc/puppet/
 

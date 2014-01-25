@@ -54,7 +54,7 @@ Vagrant::Config.run do |config|
   # the file ..pp in the manifests_path directory.
   config.vm.provision :puppet do |puppet|
      puppet.manifests_path = "puppet/manifests"
-     puppet.options = ['--verbose']
+     puppet.options = ['--verbose', '--debug']
      puppet.manifest_file  = "site.pp"
 #     puppet.manifest_file  = "postgres.pp"
 

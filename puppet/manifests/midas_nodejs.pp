@@ -4,7 +4,7 @@ class midas_nodejs {
 
   #Install Node and NPM. may want make install to be true in future
   class { 'nodejs':
-      version => 'stable',
+      version => 'latest',
       make_install => false,
   }
 
