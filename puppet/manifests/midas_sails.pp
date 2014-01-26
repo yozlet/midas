@@ -1,5 +1,5 @@
 class midas_sails {
-#  require midas_postgres
+  require midas_postgres, midas_nodejs
 
   file { "/usr/local/share/sails-postgresql":
     ensure => "directory",
@@ -53,11 +53,11 @@ class midas_sails {
     require  => Exec['npm_sails_link'],
   }
 
-#  exec { 'npm_midas_install':
-#    command   => "sudo npm install",
-##    user  => "vagrant",
-#    cwd       => "/vagrant",
-#    require  => Exec['npm_midas_link'],
-#  }
+  exec { 'npm_midas_install':
+    command   => "npm install",
+#    user  => "vagrant",
+    cwd       => "/vagrant",
+    require  => Exec['npm_midas_link'],
+  }
 
 }

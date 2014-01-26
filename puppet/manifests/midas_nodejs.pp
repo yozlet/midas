@@ -4,21 +4,52 @@ class midas_nodejs {
 
   #Install Node and NPM. may want make install to be true in future
   class { 'nodejs':
-      version => 'latest',
+      version => 'v0.10.25',
       make_install => false,
   }
 
+#  $packages = ['nodejs', 'npm']
+#  package {$packages:
+#    require => Exec['apt-update'],
+#  }->
+#  exec { 'npm update':
+#    command => "npm config set registry http://registry.npmjs.org/",
+#  }
+
+#  apt::ppa { 'ppa:chris-lea/node.js':
+#  }
+
+#    $packages = ['python2.7', 'nodejs', 'npm']
+      $packages = ['python2.7']
+#  package {$packages:
+#    require => Exec['apt-update'],
+#  }
+  package {$packages:
+  }
+  #->
+#exec { 'npm update':
+#    command => "npm config set registry http://registry.npmjs.org/",
+#  }->
+#
+#    exec { 'grunt-cli':
+#    command => "npm install -g grunt-cli",
+#  }->
+#
+#    exec { 'forever':
+#    command => "npm install -g forever",
+#  }
+
   package {'grunt-cli':
     provider    => 'npm',
-    require     => Class['nodejs'],
+#    require     => Class['nodejs'],
   }
 
   package {'forever':
     provider  => 'npm',
-    require   => Package['grunt-cli'],
+#    require   => Package['grunt-cli'],
   }
 
-  include midas_sails
+
 
 }
 
