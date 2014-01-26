@@ -39,7 +39,7 @@ class midas_config {
   exec { 'make_build':
     command   => "make build",
     cwd       => "/vagrant",
-    timeout   => 20000,
+    timeout   => 0,
 #    user      => "vagrant",
   }
 
@@ -48,7 +48,7 @@ class midas_config {
   exec { 'init_db':
     command   => "make init",
     cwd       => "/vagrant",
-    timeout   => 20000,
+    timeout   => 0,
 #    user      => "vagrant",
     before    => Exec['make_build'],
   }
