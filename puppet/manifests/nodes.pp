@@ -65,7 +65,6 @@ node "devel" {
   exec { 'start':
     command   => "forever start app.js --prod",
     cwd       => "/vagrant",
-    user      => 'midas',
     require   => Class['midas_config'],
   }
 }
