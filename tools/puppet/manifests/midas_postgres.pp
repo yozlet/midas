@@ -23,17 +23,15 @@ class midas_postgres {
       require             => Class['postgresql::globals'],
     }
 
-
-#    postgresql::server::role { 'midas':
-#      createrole          => true,
-#      require             => Class['postgresql::server'],
-#    } ->
-
     postgresql::server::db { 'midas':
       user     => 'midas',
       password  => 'midas',
       grant     => 'all',
-      #password => postgresql_password('midas', 'midas'),
+    }
+
+    ->exec {'alter_schema':
+      command   => 'psql -c "ALTER SCHEMA public OWNER TO midas;" midas',
+      user => "postgres",
     }
 
     class { 'postgresql::lib::devel':
