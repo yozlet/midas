@@ -5,8 +5,12 @@
  * @description :: Stores volunteer information for tasks
  *
  */
- var noteUtils = require('../services/notifications/manager');
+var conf = require('../../config/local');
+var noteUtils = require('../services/notifications/manager');
+
 module.exports = {
+
+  migrate: conf.migrate,
 
   attributes: {
 

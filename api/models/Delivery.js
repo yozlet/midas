@@ -5,8 +5,11 @@
  * @description :: A representation of a concrete deliverable associated with a user notification
  * @docs    :: http://sailsjs.org/#!documentation/models
  */
+var conf = require('../../config/local');
 
 module.exports = {
+
+  migrate: conf.migrate,
 
   attributes: {
     // ID of corresponding Notification

@@ -1,0 +1,10 @@
+{
+  "dev": {
+    "driver"      : "pg",
+    "host"        : "localhost",
+    "user"        : "midas",
+    "password"    : "midas",
+    "database"    : "midas",
+    "softDelete"  : true
+  }
+}

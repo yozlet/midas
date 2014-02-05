@@ -21,6 +21,7 @@
  * For more information, check out:
  * http://sailsjs.org/#documentation
  */
+var dbConfig = require('./database.json');
 
 module.exports = {
   // 'http' or 'https'
@@ -60,13 +61,18 @@ module.exports = {
   adapters: {
     'default': process.env.ADAPTER_DEFAULT || 'postgresql',
     postgresql: {
-      host        : 'localhost',
-      user        : 'midas',
-      password    : 'midas',
-      database    : 'midas',
-      softDelete  : true
+      host        : dbConfig.dev.host,
+      user        : dbConfig.dev.user,
+      password    : dbConfig.dev.password,
+      database    : dbConfig.dev.database,
+      softDelete  : dbConfig.dev.softDelete
     }
   },
+
+  // In development, change migration strategy to 'alter' to
+  // change/update database tables on model changes.
+  // Keep set to 'safe' for production
+  migrate: 'safe',
 
   // Email Templating settings
   emailTemplateDirectories: {

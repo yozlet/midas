@@ -5,8 +5,11 @@
  * @description :: Represents a Project that contains many tasks
  *
  */
+var conf = require('../../config/local');
 
 module.exports = {
+
+  migrate: conf.migrate,
 
   attributes: {
     // Current state of the project

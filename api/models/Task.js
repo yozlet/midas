@@ -1,8 +1,15 @@
-/*---------------------
-    :: Task
-    -> model
----------------------*/
+/**
+ * Task
+ *
+ * @module      :: Model
+ * @description :: Metadata and state about tasks (opportunities)
+ *
+ */
+var conf = require('../../config/local');
+
 module.exports = {
+
+  migrate: conf.migrate,
 
   attributes: {
     // Current state of the task

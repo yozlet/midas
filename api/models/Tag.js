@@ -5,8 +5,11 @@
  * @description :: Mapping of tags to projects, tasks, and other entities
  *
  */
+var conf = require('../../config/local');
 
 module.exports = {
+
+  migrate: conf.migrate,
 
   attributes: {
 

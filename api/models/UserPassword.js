@@ -5,8 +5,11 @@
  * @description :: **PRIVATE** user hashed passwords
  *
  */
+var conf = require('../../config/local');
 
 module.exports = {
+
+  migrate: conf.migrate,
 
   attributes: {
 

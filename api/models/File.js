@@ -5,8 +5,11 @@
  * @description :: Store files and their metadata
  *
  */
+var conf = require('../../config/local');
 
 module.exports = {
+
+  migrate: conf.migrate,
 
   attributes: {
     // ID of the user that created the file

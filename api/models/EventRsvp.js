@@ -5,8 +5,11 @@
  * @description :: Stores RSVP's for the Event model
  *
  */
+var conf = require('../../config/local');
 
 module.exports = {
+
+  migrate: conf.migrate,
 
   attributes: {
 

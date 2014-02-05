@@ -30,7 +30,8 @@
     "devDependencies": {
         "mocha": "*",
         "grunt-contrib-requirejs": "~0.4.1",
-        "grunt-contrib-cssmin": "*"
+        "grunt-contrib-cssmin": "*",
+        "db-migrate": "0.6.3"
     },
     "scripts": {
         "start": "node app.js",

@@ -5,8 +5,11 @@
  * @description :: Reset tokens for allowing a user to reset their password
  * @docs		:: http://sailsjs.org/#!documentation/models
  */
+var conf = require('../../config/local');
 
 module.exports = {
+
+  migrate: conf.migrate,
 
   attributes: {
 

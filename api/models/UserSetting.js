@@ -5,8 +5,11 @@
  * @description :: A representation of a user setting overriding a global configuration
  * @docs		:: http://sailsjs.org/#!documentation/models
  */
+var conf = require('../../config/local');
 
 module.exports = {
+
+  migrate: conf.migrate,
 
   attributes: {
     // ID of owner of setting

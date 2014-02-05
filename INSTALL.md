@@ -82,6 +82,8 @@ need to `npm link` in order for everything to function properly.
 
      sudo npm install -g grunt-cli
      sudo npm install -g forever
+     sudo npm install -g db-migrate
+     sudo npm install -g pg
 
 ### Install midas node packages (from the midas git folder)
 
@@ -98,6 +100,11 @@ Then run the normal npm package installer
      cd config
      cp local.ex.js local.js
      vi local.js
+
+### Edit the database settings
+
+     cd config
+     vi database.json
 
 ### Copy and edit the backend module configuration files
 

@@ -6,7 +6,11 @@
  *                 to be reused and referenced by id
  *
  */
+var conf = require('../../config/local');
+
 module.exports = {
+
+  migrate: conf.migrate,
 
   attributes: {
     // type of the tag (such as 'skill' for Skill)

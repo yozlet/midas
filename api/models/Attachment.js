@@ -6,8 +6,11 @@
  *                 form a list of attachments.
  *
  */
+var conf = require('../../config/local');
 
 module.exports = {
+
+  migrate: conf.migrate,
 
   attributes: {
     // reference to the file that has been attached

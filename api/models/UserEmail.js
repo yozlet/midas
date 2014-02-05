@@ -5,8 +5,11 @@
  * @description :: Email addresses for users
  *
  */
+var conf = require('../../config/local');
 
 module.exports = {
+
+  migrate: conf.migrate,
 
   attributes: {
 

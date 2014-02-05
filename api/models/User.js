@@ -5,9 +5,13 @@
  * @description :: User representation
  *
  */
+var conf = require('../../config/local');
 
 module.exports = {
   tableName: 'midas_user',
+
+  migrate: conf.migrate,
+
   attributes: {
     // Login information
     username: 'STRING',

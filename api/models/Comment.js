@@ -20,9 +20,12 @@
  * Replies are children of comments.  Replies should have the topicId
  * set to the main topic.  The parentId should be the id of the parent comment.
  */
+var conf = require('../../config/local');
 var noteUtils = require('../services/notifications/manager');
 
 module.exports = {
+
+  migrate: conf.migrate,
 
   attributes: {
     // topic id for the discussion (leave null on create to generate a topicId)
@@ -43,6 +46,7 @@ module.exports = {
     // content of the comment
     value: 'STRING'
   },
+
   // for the sake of alerting owners and parent commenters
   afterCreate: function (values, cb){
     var params = {};

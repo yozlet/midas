@@ -5,8 +5,11 @@
  * @description :: An event -- mirrors the iCalendar internet format
  *
  */
+var conf = require('../../config/local');
 
 module.exports = {
+
+  migrate: conf.migrate,
 
   attributes: {
     // Mirrors iCal VEVENT:STATUS.

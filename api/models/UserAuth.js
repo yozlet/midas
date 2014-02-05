@@ -5,8 +5,11 @@
  * @description :: Store the authentication mechanisms for a user
  *
  */
+var conf = require('../../config/local');
 
 module.exports = {
+
+  migrate: conf.migrate,
 
   attributes: {
     // Mapping to User model record
