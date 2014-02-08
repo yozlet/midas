@@ -34,6 +34,14 @@ class midas_postgres {
       user => "postgres",
     }
 
+    #This is for development only db client and server on same host
+    postgresql::server::pg_hba_rule { "allow application to access local database":
+        type        => "local",
+        database    => "all",
+        user        => "all",
+        auth_method => md5,
+    }
+
     class { 'postgresql::lib::devel':
      package_name => 'postgresql-server-dev-9.2'
     }

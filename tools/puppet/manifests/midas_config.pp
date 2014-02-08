@@ -28,6 +28,8 @@ class midas_config {
     command   => "make build",
     cwd       => "/vagrant",
     timeout   => 0,
+    unless    => ["ps -ef | grep '[f]orever'", "sudo -u postgres psql -d midas -c \"select id from midas_user where username='initialize' and disabled=true;\" | grep -q 1
+"]
   }
 
   # Initialize the database
@@ -37,6 +39,7 @@ class midas_config {
     cwd       => "/vagrant",
     timeout   => 0,
     before    => Exec['make_build'],
-    unless    => "ps -ef | grep '[f]orever'"
+    unless    => ["ps -ef | grep '[f]orever'", "sudo -u postgres psql -d midas -c \"select id from midas_user where username='initialize' and disabled=true;\" | grep -q 1
+"]
   }
 }

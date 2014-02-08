@@ -37,7 +37,7 @@ node "devel" {
   include midas_config
 
   exec { 'start':
-    command   => "forever start app.js --prod",
+    command   => "forever start app.js",
     cwd       => "/vagrant",
     require   => Class['midas_config'],
     unless    => "ps -ef | grep '[f]orever'"
