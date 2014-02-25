@@ -41,13 +41,4 @@ class midas_config {
     before    => Exec['make_build'],
     unless    => ["ps -ef | grep '[f]orever'"]
   }
-
-  #Check that init submodules has been run. If this fails, run the below on your
-  #host system:
-  # git submodule update --init --recursive
-  file {'/vagrant/assets/js/vendor/select2/select2.js':
-      ensure   => 'present',
-      audit    => 'all',
-      before   => Exec['run_tests'],
-    }
 }
