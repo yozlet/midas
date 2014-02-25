@@ -17,7 +17,7 @@ $ git submodule update --init --recursive
 # Bootstrap a local VM environment (this will take a while)
 $ vagrant up
 ```
-Assuming all that goes smoothly, you should be able see the homepage at http://localhost:8080/
+Assuming all that goes smoothly, you should be able see the homepage at http://192.168.33.10:1337/
 
 Alternately, for manual installation, see [INSTALL.md](INSTALL.md).
 
