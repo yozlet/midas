@@ -42,4 +42,17 @@ class midas_config {
     unless    => ["ps -ef | grep '[f]orever'", "sudo -u postgres psql -d midas -c \"select id from midas_user where username='initialize' and disabled=true;\" | grep -q 1
 "]
   }
+
+ file {'/vagrant/assets/js/vendor/select2/select2.js':
+    ensure   => 'present',
+    audit    => 'all',
+    before   => 'run_tests',
+  }
+#  exec {'update_submodules':
+#    command => "git submodule update --init --recursive",
+#    cwd    => "/vagrant",
+#    creates => "/vagrant/assets/js/vendor/select2/select2.js",
+#    timeout => 0,
+#    before => Exec["run_tests"],
+#  }
 }
