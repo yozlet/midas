@@ -6,14 +6,17 @@ require.config({
     // ----------
     //= Vendor
     // ----------
-    'text'                      : '../../vendor/text',
     'jquery'                    : '../../vendor/jquery',
+    'text'                      : '../../vendor/text',
+    'json'                      : '../../vendor/requirejs-plugins/src/json',
     'moment'                    : '../../vendor/moment/moment',
     'jquery_timeago'            : '../../vendor/jquery.timeago',
     'jquery_select2'            : '../../vendor/select2/select2',
     'jquery_timepicker'         : '../../vendor/jquery-timepicker/jquery.timepicker',
     'jquery_dotdotdot'          : '../../vendor/jquery-dotdotdot/src/js/jquery.dotdotdot',
-    'dropzone'                  : '../../vendor/dropzone-amd-module',
+    'jquery_iframe'             : '../../vendor/jquery-file-upload/js/jquery.iframe-transport',
+    'jquery.ui.widget'          : '../../vendor/jquery-file-upload/js/vendor/jquery.ui.widget',
+    'jquery_fileupload'         : '../../vendor/jquery-file-upload/js/jquery.fileupload',
     'underscore'                : '../../vendor/underscore',
     'backbone'                  : '../../vendor/backbone',
     'bootstrap'                 : '../../vendor/bootstrap',
@@ -61,7 +64,7 @@ require.config({
     // ----------
     //= Login
     // ----------
-    'login_config'              : '../config/login',
+    'login_config'              : '../config/login.json',
     'login_view'                : '../apps/login/views/login_view',
     'login_template'            : '../apps/login/templates/login_template.html',
     'login_controller'          : '../apps/login/controllers/login_controller',

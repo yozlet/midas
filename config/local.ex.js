@@ -22,12 +22,13 @@
  * http://sailsjs.org/#documentation
  */
 var dbConfig = require('./database.json');
+var fs = require('fs');
 
 module.exports = {
   // 'http' or 'https'
   httpProtocol: 'http',
-  // hostName defines the domain upon which your app will be deployed (e.g. 'localhost', for development)
-  hostName: 'localhost',
+  // hostName defines the domain upon which your app will be deployed (e.g. 'localhost:1337', for development)
+  hostName: 'localhost:1337',
   // The `port` setting determines which TCP port your app will be deployed on
   // Ports are a transport-layer concept designed to allow many different
   // networking applications run at the same time on a single computer.
@@ -80,6 +81,8 @@ module.exports = {
     layoutDir: 'assets/email/layouts'
   },
 
+  // Email dispatch protocol (i.e. SMTP  or SES)
+  emailProtocol: 'SMTP',
   // SMTP Mail settings -- uses Nodemailer
   // See for more config options: https://github.com/andris9/Nodemailer#setting-up-smtp
   smtp: {
@@ -105,6 +108,23 @@ module.exports = {
     maxConnections      : 5
     // limit the count of messages to send through a single connection (no limit by default)
     // maxMessages         :
+  },
+
+  // SES Mail settings -- uses Nodemailer
+  ses: {
+    // AWSAccessKeyID: 'AWSACCESSKEY',
+    // AWSSecretKey: 'AWS/Secret/key',
+    // ServiceUrl: 'https://email.us-east-1.amazonaws.com'
+  },
+
+  // is DKIM signing enabled for Nodemailer transport?
+  dkimEnabled: false,
+  // DKIM signing options for Nodemailer transport
+  dkim: {
+    // domainName: "kreata.ee",
+    // keySelector: "dkim",
+    // privateKey: fs.readFileSync("private_key.pem"),
+    // headerFieldNames: ''
   },
 
   // system email address (from address)

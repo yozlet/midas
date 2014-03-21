@@ -14,8 +14,8 @@
   <div class="row">
     <div class="col-sm-offset-3 col-sm-6">
       <div class="login-option">
-        <a href="<%= e.endpoint %>" class="btn btn-c0 btn-login">
-          <img src="<%= e.image %>" alt="<%= e.name %>" class="btn-login-responsive"/>
+        <a href="<%= login.config[e].endpoint %>" class="btn btn-c0 btn-login">
+          <img src="<%= login.config[e].image %>" alt="<%= login.config[e].name %>" class="btn-login-responsive"/>
         </a>
       </div>
     </div>
@@ -113,8 +113,10 @@
 
     <div class="checkbox">
       <label>
-        <input type="checkbox" id="rterms" class="validate" data-validate="checked"> Yes, I agree to the <a href="#">Terms and Conditions</a>.
-        <span class="help-block error-checked" style="display:none;">You must accept the terms and conditions to register.</span>
+        <% if (login.terms.enabled === true) { %>
+        <input type="checkbox" id="rterms" class="validate" data-validate="checked"> Yes, I agree to the <a href="<%= login.terms.link %>"><%= login.terms.name %></a>.
+        <span class="help-block error-checked" style="display:none;">You must accept the <%= login.terms.name %> to register.</span>
+        <% } %>
       </label>
     </div>
 
