@@ -10,7 +10,7 @@ Installation
 
 ### Get prerequisite packages
 
-     sudo apt-get install -y python-software-properties python g++ make git
+     sudo apt-get install -y python-software-properties python g++ make git software-properties-common
 
 ### Install Postgres 9.2+ and remove any Ubuntu installed earlier version
 
@@ -182,28 +182,28 @@ Reboot server once finished
 Establish admin user account during the wizard and verify that PostgreSQL is running as a service
 
 Open pgAdmin
-     
+
      Create database 'midas', user account 'midas' with password 'midas', and assign user 'midas' full rights to administer DB 'midas'
-     
+
 ### Install Node.js via Windows MSI, select all available add-ons
 
 [Node.js](http://nodejs.org/download/`)
-     
+
 ### Install GraphicsMagick
 
 [GraphicsMagick](ftp://ftp.graphicsmagick.org/pub/GraphicsMagick/windows/`)
-     
+
 Select Q8 version along with latest corresponding to 32 bit vs. 64 bit OS
-     
+
 ### Set System Path Variables
 
 Go to Control Panel -> System -> Advanced System Settings -> Environment Variables
 Find "Path" Variable in System Variables table and double click to edit it. Make sure it contains all of the following parts (in 	addition to anything else) separated by a semi-colon.
-	
+
 	DRIVE:\program files\graphicsmagick-1.3.18-q8;
 	(or similar, depending on your graphicsmagick version)
 	DRIVE:\Program Files\nodejs\;
-     	
+
 Save.
 
 ### Host and Configure Application
@@ -216,7 +216,7 @@ Install NPM Modules as directed above.
 
 #### If hosting on an off-line server
 
-Retrieve Midas from GitHub as above on an online pc. Install NPM modules as directed. Copy to offline server your local npm_modules directory (in project home) as well as the contents of the directory found in Users/YOUR_USER_NAME/AppData/Roaming/npm to corresponding locations on offline-server. 
+Retrieve Midas from GitHub as above on an online pc. Install NPM modules as directed. Copy to offline server your local npm_modules directory (in project home) as well as the contents of the directory found in Users/YOUR_USER_NAME/AppData/Roaming/npm to corresponding locations on offline-server.
 
 #### Starting Midas
 
@@ -228,10 +228,9 @@ Enter the following commands
 	npm install
 	npm link sails-postgresql
 	grunt requirejs
-     
+
 Raise sails with
 
      sails lift
-     
-You can now access the server at `http://localhost:1337`
 
+You can now access the server at `http://localhost:1337`
